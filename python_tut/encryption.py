@@ -1,0 +1,35 @@
+# This is a substitution sphire encryption program
+import random 
+import string
+
+chars = " " + string.punctuation + string.digits + string.ascii_letters
+# The above will give !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+chars = list(chars)
+# this will add all char in a list
+
+key = chars.copy()
+random.shuffle(key)
+
+#ENCRYPTION
+
+plain_text = input("Enter a message to encrypt: ")
+cipher_text = ""
+
+for letter in plain_text:
+    index = chars.index(letter)
+    cipher_text += key[index]
+
+print(f"Enter the original message: {plain_text}")
+print(f"Encrypted message: {cipher_text}")
+#DECRYPTION
+
+cipher_text = input("Enter a message to encrypt: ")
+plain_text = ""
+
+for letter in plain_text:
+    index = chars.index(letter)
+    plain_text += chars[index]
+
+print(f"Encrypted message: {cipher_text}")
+print(f"Enter the original message: {plain_text}")
